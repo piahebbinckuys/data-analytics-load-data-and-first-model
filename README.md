@@ -590,3 +590,4 @@ Raw data is in DuckDB and your first staging model is running.
 - DuckDB allows only one writer at a time — disconnect DBeaver before `dbt run`, reconnect to query results
 - `target/compiled/` holds the plain SQL dbt generated — you saw this after running `stg_customers`: `{{ source() }}` is replaced with the real table reference before the query runs
 # data-analytics-load-data-and-first-model
+# data-analytics-load-data-and-first-model
