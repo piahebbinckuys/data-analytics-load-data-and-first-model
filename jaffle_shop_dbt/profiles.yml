@@ -1,0 +1,7 @@
+jaffle_shop_dbt:  # Must match your project name
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: dev.duckdb  # Will use the symlink in your project directory
+      threads: 4
