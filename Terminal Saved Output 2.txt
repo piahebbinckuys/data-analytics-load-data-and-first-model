@@ -1,0 +1,446 @@
+Last login: Wed Apr 29 16:45:43 on ttys000
+(base) ➜  data-analytics-load-data-and-first-model git:(master) ✗ mkdir -p ~/code/piahebbinckuys/03-Data-Transformation/09-Data-Layers-And-Intro-DBT/data-analytics-load-data-and-first-model && cd $_
+(base) ➜  data-analytics-load-data-and-first-model git:(master) ✗ curl -s -H "Authorization: Token kxpNL53faq6T9gYZaPLJEJe4, User=piahebbinckuys" "https://kitt.lewagon.com/camps/2267/challenges/setup_script?path=03-Data-Transformation%2F09-Data-Layers-And-Intro-DBT%2F02-Load-Data-And-First-Model" | bash
+Current folder /Users/piahebbinckuys/code/piahebbinckuys/03-Data-Transformation/09-Data-Layers-And-Intro-DBT/data-analytics-load-data-and-first-model is not empty, did you cd to the right place? Use ls -alh to list files in current folder.
+Double check Kitt instructions, and contact a TA if you need help 🙏
+(base) ➜  data-analytics-load-data-and-first-model git:(master) ✗ ls -alh
+total 64
+drwxr-xr-x  9 piahebbinckuys  staff   288B Apr 29 22:34 .
+drwxr-xr-x  6 piahebbinckuys  staff   192B Apr 29 22:34 ..
+-rw-r--r--  1 piahebbinckuys  staff    28B Apr 10 12:31 .challengifyignore
+drwxr-xr-x  9 piahebbinckuys  staff   288B Apr 29 22:34 .git
+-rw-r--r--  1 piahebbinckuys  staff    18B Apr 10 12:31 .gitignore
+drwxr-xr-x  3 piahebbinckuys  staff    96B Apr 10 12:31 .lewagon
+-rw-r--r--  1 piahebbinckuys  staff   196B Apr 10 12:31 Makefile
+-rw-r--r--  1 piahebbinckuys  staff    18K Apr 10 12:31 README.md
+drwxr-xr-x  4 piahebbinckuys  staff   128B Apr 10 12:31 tests
+(base) ➜  data-analytics-load-data-and-first-model git:(master) ✗ code .
+(base) ➜  data-analytics-load-data-and-first-model git:(master) ✗ cp -rP ../../../03-Data-Transformation/09-Data-Layers-And-Intro-DBT/data-analytics-setup-dbt/jaffle_shop_dbt .
+(base) ➜  data-analytics-load-data-and-first-model git:(master) ✗ ls -l jaffle_shop_dbt/dev.duckdb
+
+lrwxr-xr-x@ 1 piahebbinckuys  staff  30 Apr 29 22:37 jaffle_shop_dbt/dev.duckdb -> ../../../dbt-shared/dev.duckdb
+(base) ➜  data-analytics-load-data-and-first-model git:(master) ✗ git add jaffle_shop_dbt
+(base) ➜  data-analytics-load-data-and-first-model git:(master) ✗ git commit -m "Copied setup from previous challenge"
+
+[master (root-commit) d54aa3c] Copied setup from previous challenge
+ 11 files changed, 90 insertions(+)
+ create mode 100644 jaffle_shop_dbt/.gitignore
+ create mode 100644 jaffle_shop_dbt/.user.yml
+ create mode 100644 jaffle_shop_dbt/README.md
+ create mode 100644 jaffle_shop_dbt/analyses/.gitkeep
+ create mode 100644 jaffle_shop_dbt/dbt_project.yml
+ create mode 100644 jaffle_shop_dbt/macros/.gitkeep
+ create mode 100644 jaffle_shop_dbt/models/schema.yml
+ create mode 100644 jaffle_shop_dbt/profiles.yml
+ create mode 100644 jaffle_shop_dbt/seeds/.gitkeep
+ create mode 100644 jaffle_shop_dbt/snapshots/.gitkeep
+ create mode 100644 jaffle_shop_dbt/tests/.gitkeep
+(base) ➜  data-analytics-load-data-and-first-model git:(master) ✗ git push origin master
+
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+(base) ➜  data-analytics-load-data-and-first-model git:(master) ✗ git remote -v
+(base) ➜  data-analytics-load-data-and-first-model git:(master) ✗ cp -rP ../../../03-Data-Transformation/09-Data-Layers-And-Intro-DBT/data-analytics-setup-dbt/jaffle_shop_dbt .
+overwrite ./jaffle_shop_dbt/.user.yml? (y/n [n]) y
+overwrite ./jaffle_shop_dbt/profiles.yml? (y/n [n]) y
+overwrite ./jaffle_shop_dbt/snapshots/.gitkeep? (y/n [n]) y
+overwrite ./jaffle_shop_dbt/target/graph.gpickle? (y/n [n]) y
+overwrite ./jaffle_shop_dbt/target/graph_summary.json? (y/n [n]) y
+overwrite ./jaffle_shop_dbt/target/compiled/jaffle_shop_dbt/models/example/my_first_dbt_model.sql? (y/n [n]) y
+overwrite ./jaffle_shop_dbt/target/compiled/jaffle_shop_dbt/models/example/my_second_dbt_model.sql? (y/n [n]) y
+overwrite ./jaffle_shop_dbt/target/run_results.json? (y/n [n]) y
+overwrite ./jaffle_shop_dbt/target/partial_parse.msgpack? (y/n [n]) y
+overwrite ./jaffle_shop_dbt/target/manifest.json? (y/n [n]) y
+overwrite ./jaffle_shop_dbt/target/run/jaffle_shop_dbt/models/example/my_first_dbt_model.sql? (y/n [n]) y
+overwrite ./jaffle_shop_dbt/target/run/jaffle_shop_dbt/models/example/my_second_dbt_model.sql? (y/n [n]) y
+overwrite ./jaffle_shop_dbt/target/semantic_manifest.json? (y/n [n]) y
+overwrite ./jaffle_shop_dbt/tests/.gitkeep? (y/n [n]) y
+overwrite ./jaffle_shop_dbt/models/schema.yml? (y/n [n]) y
+overwrite ./jaffle_shop_dbt/README.md? (y/n [n]) y
+overwrite ./jaffle_shop_dbt/macros/.gitkeep? (y/n [n]) y
+overwrite ./jaffle_shop_dbt/logs/dbt.log? (y/n [n]) y
+overwrite ./jaffle_shop_dbt/.gitignore? (y/n [n]) y
+overwrite ./jaffle_shop_dbt/seeds/.gitkeep? (y/n [n]) y
+overwrite ./jaffle_shop_dbt/analyses/.gitkeep? (y/n [n]) y
+overwrite ./jaffle_shop_dbt/dbt_project.yml? (y/n [n]) y
+y                                                                               
+y
+(base) ➜  data-analytics-load-data-and-first-model git:(master) ✗ y
+zsh: command not found: y
+(base) ➜  data-analytics-load-data-and-first-model git:(master) ✗ y
+zsh: command not found: y
+(base) ➜  data-analytics-load-data-and-first-model git:(master) ✗ ls -l jaffle_shop_dbt/dev.duckdb
+
+lrwxr-xr-x@ 1 piahebbinckuys  staff  30 Apr 29 22:41 jaffle_shop_dbt/dev.duckdb -> ../../../dbt-shared/dev.duckdb
+(base) ➜  data-analytics-load-data-and-first-model git:(master) ✗ git add jaffle_shop_dbt
+
+(base) ➜  data-analytics-load-data-and-first-model git:(master) ✗ git commit -m "Copied setup from previous challenge"
+
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.challengifyignore
+	.gitignore
+	.lewagon/
+	Makefile
+	README.md
+	tests/
+
+nothing added to commit but untracked files present (use "git add" to track)
+(base) ➜  data-analytics-load-data-and-first-model git:(master) ✗ git add jaffle_shop_dbt
+
+(base) ➜  data-analytics-load-data-and-first-model git:(master) ✗ git commit -m "Copied setup from previous challenge"
+
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.challengifyignore
+	.gitignore
+	.lewagon/
+	Makefile
+	README.md
+	tests/
+
+nothing added to commit but untracked files present (use "git add" to track)
+(base) ➜  data-analytics-load-data-and-first-model git:(master) ✗ git add .
+(base) ➜  data-analytics-load-data-and-first-model git:(master) ✗ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   .challengifyignore
+	new file:   .gitignore
+	new file:   .lewagon/metadata.yml
+	new file:   Makefile
+	new file:   README.md
+	new file:   tests/__init__.py
+	new file:   tests/test_staging_model.py
+
+(base) ➜  data-analytics-load-data-and-first-model git:(master) ✗ git commit -m "Copied setup from previous challenge"
+[master c27a707] Copied setup from previous challenge
+ 7 files changed, 779 insertions(+)
+ create mode 100644 .challengifyignore
+ create mode 100644 .gitignore
+ create mode 100644 .lewagon/metadata.yml
+ create mode 100644 Makefile
+ create mode 100644 README.md
+ create mode 100644 tests/__init__.py
+ create mode 100644 tests/test_staging_model.py
+(base) ➜  data-analytics-load-data-and-first-model git:(master) git push origin master
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+(base) ➜  data-analytics-load-data-and-first-model git:(master) le wagon setup-git
+zsh: command not found: le
+(base) ➜  data-analytics-load-data-and-first-model git:(master) git remote remove origin
+error: No such remote: 'origin'
+(base) ➜  data-analytics-load-data-and-first-model git:(master) git remote add origin https://github.com/TON_PSEUDO/data-analytics-load-data-and-first-model.git 
+(base) ➜  data-analytics-load-data-and-first-model git:(master) git push origin master
+Username for 'https://github.com': piahebbinckuys
+Password for 'https://piahebbinckuys@github.com': 
+remote: Invalid username or token. Password authentication is not supported for Git operations.
+fatal: Authentication failed for 'https://github.com/TON_PSEUDO/data-analytics-load-data-and-first-model.git/'
+(base) ➜  data-analytics-load-data-and-first-model git:(master) remote add origin https://github.com/piahebbinckuys/data-analytics-load-data-and-first-model.git
+zsh: command not found: remote
+(base) ➜  data-analytics-load-data-and-first-model git:(master) git remote add origin https://github.com/piahebbinckuys/data-analytics-load-data-and-first-model.git
+error: remote origin already exists.
+(base) ➜  data-analytics-load-data-and-first-model git:(master) git remote remove origin
+
+(base) ➜  data-analytics-load-data-and-first-model git:(master)  git remote add origin https://github.com/piahebbinckuys/data-analytics-load-data-and-first-model.git
+
+(base) ➜  data-analytics-load-data-and-first-model git:(master) git push origin master
+Username for 'https://github.com': piahebbinckuys
+Password for 'https://piahebbinckuys@github.com': 
+remote: Invalid username or token. Password authentication is not supported for Git operations.
+fatal: Authentication failed for 'https://github.com/piahebbinckuys/data-analytics-load-data-and-first-model.git/'
+(base) ➜  data-analytics-load-data-and-first-model git:(master) git push origin master
+
+Username for 'https://github.com': piahebbinckuys
+Password for 'https://piahebbinckuys@github.com': 
+remote: Invalid username or token. Password authentication is not supported for Git operations.
+fatal: Authentication failed for 'https://github.com/piahebbinckuys/data-analytics-load-data-and-first-model.git/'
+(base) ➜  data-analytics-load-data-and-first-model git:(master) echo "# data-analytics-load-data-and-first-model" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/piahebbinckuys/data-analytics-load-data-and-first-model.git
+git push -u origin main
+Reinitialized existing Git repository in /Users/piahebbinckuys/code/piahebbinckuys/03-Data-Transformation/09-Data-Layers-And-Intro-DBT/data-analytics-load-data-and-first-model/.git/
+[master 8826ed0] first commit
+ 1 file changed, 1 insertion(+)
+error: remote origin already exists.
+Username for 'https://github.com': git remote add origin https://github.com/piahebbinckuys/data-analytics-load-data-and-first-model.git
+git branch -M main
+git push -u origin mainPassword for 'https://git%20remote%20add%20origin%20https%3A%2F%2Fgithub.com%2Fpiahebbinckuys%2Fdata-analytics-load-data-and-first-model.git@github.com': 
+remote: Invalid username or token. Password authentication is not supported for Git operations.
+fatal: Authentication failed for 'https://github.com/piahebbinckuys/data-analytics-load-data-and-first-model.git/'
+(base) ➜  data-analytics-load-data-and-first-model git:(main) git remote add origin https://github.com/piahebbinckuys/data-analytics-load-data-and-first-model.git
+git branch -M main
+git push -u origin main
+error: remote origin already exists.
+Username for 'https://github.com': piahebbinckuys
+Password for 'https://piahebbinckuys@github.com': 
+remote: Invalid username or token. Password authentication is not supported for Git operations.
+fatal: Authentication failed for 'https://github.com/piahebbinckuys/data-analytics-load-data-and-first-model.git/'
+(base) ➜  data-analytics-load-data-and-first-model git:(main) git remote add origin https://github.com/piahebbinckuys/data-analytics-load-data-and-first-model.git
+git branch -M main
+git push -u origin main
+error: remote origin already exists.
+Username for 'https://github.com': piahebbinckuys
+Password for 'https://piahebbinckuys@github.com': 
+remote: Invalid username or token. Password authentication is not supported for Git operations.
+fatal: Authentication failed for 'https://github.com/piahebbinckuys/data-analytics-load-data-and-first-model.git/'
+(base) ➜  data-analytics-load-data-and-first-model git:(main) echo "# data-analytics-load-data-and-first-model" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/piahebbinckuys/data-analytics-load-data-and-first-model.git
+git push -u origin main
+Reinitialized existing Git repository in /Users/piahebbinckuys/code/piahebbinckuys/03-Data-Transformation/09-Data-Layers-And-Intro-DBT/data-analytics-load-data-and-first-model/.git/
+[main 15e1166] first commit
+ 1 file changed, 1 insertion(+)
+error: remote origin already exists.
+Username for 'https://github.com': piahebbinckuys
+Password for 'https://piahebbinckuys@github.com': 
+remote: Invalid username or token. Password authentication is not supported for Git operations.
+fatal: Authentication failed for 'https://github.com/piahebbinckuys/data-analytics-load-data-and-first-model.git/'
+(base) ➜  data-analytics-load-data-and-first-model git:(main) mkdir -p ~/code/piahebbinckuys/03-Data-Transformation/09-Data-Layers-And-Intro-DBT/data-analytics-load-data-and-first-model && cd $_
+(base) ➜  data-analytics-load-data-and-first-model git:(main) curl -s -H "Authorization: Token kxpNL53faq6T9gYZaPLJEJe4, User=piahebbinckuys" "https://kitt.lewagon.com/camps/2267/challenges/setup_script?path=03-Data-Transformation%2F09-Data-Layers-And-Intro-DBT%2F02-Load-Data-And-First-Model" | bash
+Current folder /Users/piahebbinckuys/code/piahebbinckuys/03-Data-Transformation/09-Data-Layers-And-Intro-DBT/data-analytics-load-data-and-first-model is not empty, did you cd to the right place? Use ls -alh to list files in current folder.
+Double check Kitt instructions, and contact a TA if you need help 🙏
+(base) ➜  data-analytics-load-data-and-first-model git:(main) cd   [🐍 lewagon]
+(base) ➜  ~ code .                                                 [🐍 lewagon]
+(base) ➜  ~ curl -s -H "Authorization: Token kxpNL53faq6T9gYZaPLJEJe4, User=piahebbinckuys" "https://kitt.lewagon.com/camps/2267/challenges/setup_script?path=03-Data-Transformation%2F09-Data-Layers-And-Intro-DBT%2F02-Load-Data-And-First-Model" | bash
+Current folder /Users/piahebbinckuys is not empty, did you cd to the right place? Use ls -alh to list files in current folder.
+Double check Kitt instructions, and contact a TA if you need help 🙏
+(base) ➜  ~ mkdir -p ~/code/piahebbinckuys/03-Data-Transformation/09-Data-Layers-And-Intro-DBT/data-analytics-load-data-and-first-model && cd $_
+
+(base) ➜  data-analytics-load-data-and-first-model git:(main) curl -s -H "Authorization: Token kxpNL53faq6T9gYZaPLJEJe4, User=piahebbinckuys" "https://kitt.lewagon.com/camps/2267/challenges/setup_script?path=03-Data-Transformation%2F09-Data-Layers-And-Intro-DBT%2F02-Load-Data-And-First-Model" | bash
+Current folder /Users/piahebbinckuys/code/piahebbinckuys/03-Data-Transformation/09-Data-Layers-And-Intro-DBT/data-analytics-load-data-and-first-model is not empty, did you cd to the right place? Use ls -alh to list files in current folder.
+Double check Kitt instructions, and contact a TA if you need help 🙏
+(base) ➜  data-analytics-load-data-and-first-model git:(main) code .
+(base) ➜  data-analytics-load-data-and-first-model git:(main) cp -rP ../../../03-Data-Transformation/09-Data-Layers-And-Intro-DBT/data-analytics-setup-dbt/jaffle_shop_dbt .
+
+overwrite ./jaffle_shop_dbt/.user.yml? (y/n [n]) y
+overwrite ./jaffle_shop_dbt/profiles.yml? (y/n [n]) n
+not overwritten
+overwrite ./jaffle_shop_dbt/.DS_Store? (y/n [n]) n
+not overwritten
+overwrite ./jaffle_shop_dbt/snapshots/.gitkeep? (y/n [n]) n
+not overwritten
+overwrite ./jaffle_shop_dbt/target/graph.gpickle? (y/n [n]) n
+not overwritten
+overwrite ./jaffle_shop_dbt/target/graph_summary.json? (y/n [n]) n
+not overwritten
+overwrite ./jaffle_shop_dbt/target/compiled/jaffle_shop_dbt/models/example/my_first_dbt_model.sql? (y/n [n]) n
+not overwritten
+overwrite ./jaffle_shop_dbt/target/compiled/jaffle_shop_dbt/models/example/my_second_dbt_model.sql? (y/n [n]) n
+not overwritten
+overwrite ./jaffle_shop_dbt/target/run_results.json? (y/n [n]) n
+not overwritten
+overwrite ./jaffle_shop_dbt/target/partial_parse.msgpack? (y/n [n]) n
+not overwritten
+overwrite ./jaffle_shop_dbt/target/manifest.json? (y/n [n]) n
+not overwritten
+overwrite ./jaffle_shop_dbt/target/run/jaffle_shop_dbt/models/example/my_first_dbt_model.sql? (y/n [n]) n
+not overwritten
+overwrite ./jaffle_shop_dbt/target/run/jaffle_shop_dbt/models/example/my_second_dbt_model.sql? (y/n [n]) n
+not overwritten
+overwrite ./jaffle_shop_dbt/target/semantic_manifest.json? (y/n [n]) n
+not overwritten
+overwrite ./jaffle_shop_dbt/tests/.gitkeep? (y/n [n]) n
+not overwritten
+overwrite ./jaffle_shop_dbt/models/schema.yml? (y/n [n]) n
+not overwritten
+overwrite ./jaffle_shop_dbt/README.md? (y/n [n]) n
+not overwritten
+overwrite ./jaffle_shop_dbt/macros/.gitkeep? (y/n [n]) n
+not overwritten
+overwrite ./jaffle_shop_dbt/logs/dbt.log? (y/n [n]) n
+not overwritten
+overwrite ./jaffle_shop_dbt/.gitignore? (y/n [n]) n
+not overwritten
+overwrite ./jaffle_shop_dbt/seeds/.gitkeep? (y/n [n]) n
+not overwritten
+overwrite ./jaffle_shop_dbt/analyses/.gitkeep? (y/n [n]) n
+not overwritten
+overwrite ./jaffle_shop_dbt/dbt_project.yml? (y/n [n]) n
+not overwritten
+(base) ➜  data-analytics-load-data-and-first-model git:(main) ls -l jaffle_shop_dbt/dev.duckdb
+
+lrwxr-xr-x@ 1 piahebbinckuys  staff  30 Apr 29 22:52 jaffle_shop_dbt/dev.duckdb -> ../../../dbt-shared/dev.duckdb
+(base) ➜  data-analytics-load-data-and-first-model git:(main) git add jaffle_shop_dbt
+
+(base) ➜  data-analytics-load-data-and-first-model git:(main) git commit -m "Copied setup from previous challenge"
+
+On branch main
+nothing to commit, working tree clean
+(base) ➜  data-analytics-load-data-and-first-model git:(main) git push origin master
+
+error: src refspec master does not match any
+error: failed to push some refs to 'https://github.com/piahebbinckuys/data-analytics-load-data-and-first-model.git'
+(base) ➜  data-analytics-load-data-and-first-model git:(main) git push origin main
+Username for 'https://github.com': piahebbinckuys
+Password for 'https://piahebbinckuys@github.com': 
+remote: Invalid username or token. Password authentication is not supported for Git operations.
+fatal: Authentication failed for 'https://github.com/piahebbinckuys/data-analytics-load-data-and-first-model.git/'
+(base) ➜  data-analytics-load-data-and-first-model git:(main) git push origin main
+
+Username for 'https://github.com': piahebbinckuys
+Password for 'https://piahebbinckuys@github.com': 
+remote: Invalid username or token. Password authentication is not supported for Git operations.
+fatal: Authentication failed for 'https://github.com/piahebbinckuys/data-analytics-load-data-and-first-model.git/'
+(base) ➜  data-analytics-load-data-and-first-model git:(main) git push origin main
+
+Username for 'https://github.com': piahebbinckuys
+Password for 'https://piahebbinckuys@github.com': 
+Enumerating objects: 28, done.
+Counting objects: 100% (28/28), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (20/20), done.
+Writing objects: 100% (28/28), 10.76 KiB | 5.38 MiB/s, done.
+Total 28 (delta 5), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (5/5), done.
+To https://github.com/piahebbinckuys/data-analytics-load-data-and-first-model.git
+ * [new branch]      main -> main
+(base) ➜  data-analytics-load-data-and-first-model git:(main) mkdir -p jaffle_shop_dbt/data
+(base) ➜  data-analytics-load-data-and-first-model git:(main) curl -o jaffle_shop_dbt/data/raw_customers.csv \
+  https://raw.githubusercontent.com/dbt-labs/jaffle_shop/main/seeds/raw_customers.csv
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1302  100  1302    0     0   6586      0 --:--:-- --:--:-- --:--:--  6609
+(base) ➜  data-analytics-load-data-and-first-model git:(main) ✗ curl -o jaffle_shop_dbt/data/raw_orders.csv \
+  https://raw.githubusercontent.com/dbt-labs/jaffle_shop/main/seeds/raw_orders.csv
+
+curl -o jaffle_shop_dbt/data/raw_payments.csv \
+  https://raw.githubusercontent.com/dbt-labs/jaffle_shop/main/seeds/raw_payments.csv
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  2723  100  2723    0     0  15861      0 --:--:-- --:--:-- --:--:-- 15923
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  2560  100  2560    0     0  15035      0 --:--:-- --:--:-- --:--:-- 15058
+(base) ➜  data-analytics-load-data-and-first-model git:(main) ✗ ls -lh jaffle_shop_dbt/data/
+
+total 24
+-rw-r--r--  1 piahebbinckuys  staff   1.3K Apr 29 22:58 raw_customers.csv
+-rw-r--r--  1 piahebbinckuys  staff   2.7K Apr 29 22:58 raw_orders.csv
+-rw-r--r--  1 piahebbinckuys  staff   2.5K Apr 29 22:58 raw_payments.csv
+(base) ➜  data-analytics-load-data-and-first-model git:(main) ✗ echo "data/" >> jaffle_shop_dbt/.gitignore
+git add jaffle_shop_dbt/.gitignore
+git commit -m "Ignore raw data files"
+git push origin master
+[main 9f59774] Ignore raw data files
+ 1 file changed, 1 insertion(+)
+error: src refspec master does not match any
+error: failed to push some refs to 'https://github.com/piahebbinckuys/data-analytics-load-data-and-first-model.git'
+(base) ➜  data-analytics-load-data-and-first-model git:(main) echo "data/" >> jaffle_shop_dbt/.gitignore
+git add jaffle_shop_dbt/.gitignore
+git commit -m "Ignore raw data files"
+git push origin main  
+[main 6757d2a] Ignore raw data files
+ 1 file changed, 1 insertion(+)
+Enumerating objects: 11, done.
+Counting objects: 100% (11/11), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (8/8), 694 bytes | 694.00 KiB/s, done.
+Total 8 (delta 6), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (6/6), completed with 3 local objects.
+To https://github.com/piahebbinckuys/data-analytics-load-data-and-first-model.git
+   15e1166..6757d2a  main -> main
+(base) ➜  data-analytics-load-data-and-first-model git:(main)   readlink -f jaffle_shop_dbt/data
+
+/Users/piahebbinckuys/code/piahebbinckuys/03-Data-Transformation/09-Data-Layers-And-Intro-DBT/data-analytics-load-data-and-first-model/jaffle_shop_dbt/data
+(base) ➜  data-analytics-load-data-and-first-model git:(main) ✗ cd jaffle_shop_dbt
+(base) ➜  jaffle_shop_dbt git:(main) ✗ mkdir -p models/staging     [🐍 lewagon]
+
+(base) ➜  jaffle_shop_dbt git:(main) ✗ cd jaffle_shop_dbt          [🐍 lewagon]
+
+cd: no such file or directory: jaffle_shop_dbt
+(base) ➜  jaffle_shop_dbt git:(main) ✗ cd ..                       [🐍 lewagon]
+(base) ➜  data-analytics-load-data-and-first-model git:(main) ✗ dbt run --select stg_customers
+
+21:09:35  Running with dbt=1.11.8
+21:09:35  Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /Users/piahebbinckuys/code/piahebbinckuys/03-Data-Transformation/09-Data-Layers-And-Intro-DBT/data-analytics-load-data-and-first-model/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+(base) ➜  data-analytics-load-data-and-first-model git:(main) ✗  cd jaffle_shop_dbt
+(base) ➜  jaffle_shop_dbt git:(main) ✗ dbt run --select stg_customers
+
+21:09:49  Running with dbt=1.11.8
+21:09:50  Registered adapter: duckdb=1.10.1
+21:09:50  [WARNING]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.jaffle_shop_dbt.example
+21:09:50  Found 1 model, 3 sources, 475 macros
+21:09:50  
+21:09:50  Concurrency: 4 threads (target='dev')
+21:09:50  
+21:09:50  1 of 1 START sql view model main.stg_customers ................................. [RUN]
+21:09:50  1 of 1 OK created sql view model main.stg_customers ............................ [OK in 0.03s]
+21:09:50  
+21:09:50  Finished running 1 view model in 0 hours 0 minutes and 0.11 seconds (0.11s).
+21:09:50  
+21:09:50  Completed successfully
+21:09:50  
+21:09:50  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=1
+(base) ➜  jaffle_shop_dbt git:(main) ✗ cat target/compiled/jaffle_shop_dbt/models/staging/stg_customers.sql
+
+
+
+WITH source AS (
+    SELECT * FROM "dev"."raw"."raw_customers"
+)
+
+SELECT
+    id AS customer_id,
+    first_name,
+    last_name
+FROM source%                                                                    (base) ➜  jaffle_shop_dbt git:(main) ✗ cd ..                       [🐍 lewagon]
+
+(base) ➜  data-analytics-load-data-and-first-model git:(main) ✗ pytest tests/test_staging_model.py -v
+
+============================= test session starts ==============================
+platform darwin -- Python 3.12.9, pytest-8.3.4, pluggy-1.5.0 -- /Users/piahebbinckuys/.pyenv/versions/3.12.9/envs/lewagon/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/piahebbinckuys/code/piahebbinckuys/03-Data-Transformation/09-Data-Layers-And-Intro-DBT/data-analytics-load-data-and-first-model
+plugins: anyio-4.8.0, typeguard-4.4.2
+collected 8 items                                                              
+
+tests/test_staging_model.py::TestStagingDirectory::test_staging_directory_exists PASSED [ 12%]
+tests/test_staging_model.py::TestStagingModel::test_stg_customers_exists PASSED [ 25%]
+tests/test_staging_model.py::TestStagingModel::test_stg_customers_uses_source_macro PASSED [ 37%]
+tests/test_staging_model.py::TestStagingModel::test_stg_customers_references_jaffle_shop_source PASSED [ 50%]
+tests/test_staging_model.py::TestStagingModel::test_stg_customers_references_raw_customers_table PASSED [ 62%]
+tests/test_staging_model.py::TestStagingModel::test_stg_customers_has_customer_id_column PASSED [ 75%]
+tests/test_staging_model.py::TestStagingModel::test_stg_customers_selects_name_columns PASSED [ 87%]
+tests/test_staging_model.py::TestStagingModel::test_stg_customers_has_config PASSED [100%]
+
+============================== 8 passed in 0.01s ===============================
+(base) ➜  data-analytics-load-data-and-first-model git:(main) ✗ git add jaffle_shop_dbt/models/staging/
+(base) ➜  data-analytics-load-data-and-first-model git:(main) ✗ git commit -m "Add first staging model: stg_customers"
+
+[main ff02257] Add first staging model: stg_customers
+ 1 file changed, 11 insertions(+)
+ create mode 100644 jaffle_shop_dbt/models/staging/stg_customers.sql
+(base) ➜  data-analytics-load-data-and-first-model git:(main) ✗ git push origin main  
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (6/6), 619 bytes | 619.00 KiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/piahebbinckuys/data-analytics-load-data-and-first-model.git
+   6757d2a..ff02257  main -> main
+(base) ➜  data-analytics-load-data-and-first-model git:(main) ✗    [🐍 lewagon]
